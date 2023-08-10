@@ -144,8 +144,7 @@ pipeline {
                         changeDetails: """
                         {
                             "build_number":"${BUILD_NUMBER}",
-                            "pipeline_name":"/multibranch-divya-1/job/main/",
-                            //"pipeline_name":"${pipelineName}",
+                            "branch":"main",
                             "stage_name":"${stageName}"
                         }""")
                     echo "Change Request Id with attributes... ${changeRequestId}"
