@@ -153,6 +153,8 @@ pipeline {
                         changeRequestDetails: """
                         {
                             "state":"3",
+                            "close_code":"Successful",
+                            "close_notes":"test",
                             "comments": "Change request comments UPDATED!!!",
                             "work_notes": "Change request work_notes UPDATED!!!"
                         }""",
