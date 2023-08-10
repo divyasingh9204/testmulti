@@ -145,7 +145,7 @@ pipeline {
                         {
                             "build_number":"${BUILD_NUMBER}",
                             "pipeline_name":"${pipelineName}",
-                            "stage_name":"${stageName}"
+                          //  "stage_name":"${stageName}"
                         }""")
                     echo "Change Request Id with attributes... ${changeRequestId}"
 
