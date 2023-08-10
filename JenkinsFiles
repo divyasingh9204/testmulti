@@ -152,6 +152,8 @@ pipeline {
                     snDevOpsUpdateChangeInfo(
                         changeRequestDetails: """
                         {
+                            "justification": "test justification",
+                            "description": "test description",
                             "close_code":"successful_issues",
                             "close_notes":"Test results unsuccessful",
                             "comments": "Change request comments UPDATED!!!",
