@@ -152,7 +152,7 @@ pipeline {
                     snDevOpsUpdateChangeInfo(
                         changeRequestDetails: """
                         {
-                            "close_code":"successful",
+                            "close_code":"successful_issues",
                             "close_notes":"Test results unsuccessful",
                             "comments": "Change request comments UPDATED!!!",
                             "work_notes": "Change request work_notes UPDATED!!!",
