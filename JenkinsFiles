@@ -197,3 +197,4 @@ def sonarSummaries() {
       sh '${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=venkataprasadsirigi_DevOpsTestProject -Dsonar.organization=venkataprasadsirigi -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=976598951d1a4656e7973419e9914229caaa7f88 -Dsonar.java.binaries=target/ -Dsonar.branch.name=master'
 }
 }
+
