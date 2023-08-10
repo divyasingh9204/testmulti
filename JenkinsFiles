@@ -140,14 +140,7 @@ pipeline {
                     changeRequestId = snDevOpsGetChangeNumber()
                     echo "Change Request Id without any attributes... ${changeRequestId}"
 
-                    changeRequestId = snDevOpsGetChangeNumber(
-                        changeDetails: """
-                        {
-                            "build_number":"${BUILD_NUMBER}",
-                            "branch":"main",
-                            "stage_name":"${stageName}"
-                        }""")
-                    echo "Change Request Id with attributes... ${changeRequestId}"
+                    
 
                     echo "Updating the change details ..."
                     snDevOpsUpdateChangeInfo(
