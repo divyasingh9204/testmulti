@@ -17,10 +17,10 @@
                  echo 'Hello deploy'
              }
          }
-         stage('testing') 
+         stage('testing') {
           steps {
                  echo 'Hello testing the changes'
              }
          }
      }
-
+}
