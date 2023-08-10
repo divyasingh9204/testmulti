@@ -152,11 +152,11 @@ pipeline {
                     snDevOpsUpdateChangeInfo(
                         changeRequestDetails: """
                         {
-                            "state":"3",
-                            "close_code":"successful_issues",
+                            "close_code":"successful",
                             "close_notes":"Test results unsuccessful",
                             "comments": "Change request comments UPDATED!!!",
-                            "work_notes": "Change request work_notes UPDATED!!!"
+                            "work_notes": "Change request work_notes UPDATED!!!",
+                            "state":"3"
                         }""",
                         changeRequestNumber: """${changeRequestId}""")
                     echo "Verify the state, comments and work_notes are updated"
