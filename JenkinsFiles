@@ -26,7 +26,7 @@
 // }
 
 
-def packageName = "package_app-devops.war"
+def packageName = "package_app-devops1.${BUILD_NUMBER}.war"
 
 def artifactname = "artifact_app_devops.jar"
 def version = "1.${BUILD_NUMBER}"
