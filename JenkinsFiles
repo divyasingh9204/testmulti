@@ -152,7 +152,7 @@ pipeline {
                 }
              }
         }
-        stage(‘get_Change_Info') {
+        stage('get change') {
 	     steps {
 		echo ‘get change'	
 		script{
