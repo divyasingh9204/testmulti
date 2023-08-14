@@ -88,7 +88,7 @@ pipeline {
                         "repositoryName": "${repoName}"
                     }
                 ],
-                "branchName": "main"
+                "branchName": "${BRANCH_NAME}"
                 }""")
 
                 snDevOpsPackage(
@@ -104,7 +104,7 @@ pipeline {
                             "repositoryName": "${repoName}"
                         }
                     ],
-                    "branchName": "main"
+                    "branchName": "${BRANCH_NAME}"
                 }""")
             }     
         }
@@ -145,18 +145,41 @@ pipeline {
                     snDevOpsUpdateChangeInfo(
                         changeRequestDetails: """
                         {
-                            "justification": "test justification",
-                            "description": "test description",
-                            "close_code":"successful_issues",
-                            "close_notes":"Test results unsuccessful",
-                            "comments": "Change request comments UPDATED!!!",
-                            "work_notes": "Change request work_notes UPDATED!!!",
-                            "state":"3"
+                            "justification": "test justification"
                         }""",
                         changeRequestNumber: """${changeRequestId}""")
                     echo "Verify the state, comments and work_notes are updated"
                 }
              }
+        }
+        stage(‘get_Change_Info') {
+            steps {
+		   echo ‘get change'
+                script{
+                    echo "snDevOpsGetChangeNumber Step, changeId - ${changeRequestId}"
+                    changeRequestId = snDevOpsGetChangeNumber(
+                        changeDetails: """
+                        {
+                            "build_number":"${BUILD_NUMBER}",
+                            "pipeline_name":"Divya-multibranch-pipeline-1",
+                            "stage_name":"${stageName}",
+			    "branchName": "${BRANCH_NAME}"
+                        }""")
+                }
+                echo "Change Step, changeId - ${changeRequestId}"
+            }
+        }
+
+        stage('Update_Change') {
+            steps {
+                echo 'Change Step'
+                 script{
+                changeRequestId = snDevOpsGetChangeNumber()
+                snDevOpsUpdateChangeInfo(changeRequestDetails: """{ "description": "Test description in Update_Change Step by ${env.BUILD_NUMBER}", "comments": "This update for work notes is from jenkins file from Second_Update_Change", "work_notes": "test Update from Update_Change"}""", changeRequestNumber: """${changeRequestId}""")
+                }
+                echo "Change Step, changeId - ${changeRequestId}"
+                echo 'Change Done'
+            }
         }
     }
 }
