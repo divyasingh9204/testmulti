@@ -153,9 +153,9 @@ pipeline {
              }
         }
         stage(‘get_Change_Info') {
-            steps {
-		   echo ‘get change'
-                script{
+	     steps {
+		echo ‘get change'	
+		script{
                     echo "snDevOpsGetChangeNumber Step, changeId - ${changeRequestId}"
                     changeRequestId = snDevOpsGetChangeNumber(
                         changeDetails: """
