@@ -185,10 +185,22 @@ pipeline {
     //timeout(time: 10, unit: 'MINUTES') {
     //  waitForQualityGate abortPipeline: false
     //}
-def sonarSummaries() {
+//def sonarSummaries() {
 
-   withSonarQubeEnv('sonarcloud.io') {
-      sh '${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=venkataprasadsirigi_DevOpsTestProject -Dsonar.organization=venkataprasadsirigi -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=976598951d1a4656e7973419e9914229caaa7f88 -Dsonar.java.binaries=target/ -Dsonar.branch.name=master'
-}
+  // withSonarQubeEnv('sonarcloud.io') {
+    //  sh '${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=venkataprasadsirigi_DevOpsTestProject -Dsonar.organization=venkataprasadsirigi -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=976598951d1a4656e7973419e9914229caaa7f88 -Dsonar.java.binaries=target/ -Dsonar.branch.name=master'
+//}
+   def sonarSummaries() {
+	withSonarQubeEnv('sonarcloud.io'){
+	   if(fileExists("sonar-project.properties")) {
+			sh '${SCANNER_HOME}/bin/sonar-scanner'
+		} else {
+			sh 'mvn clean verify sonar:sonar \
+			    -Dsonar.login=1ff462f03228674e3a684569d716aad1aff286bb \
+			    -Dsonar.host.url=https://sonarcloud.io \
+			    -Dsonar.organization=riyapulusuganti \
+			    -Dsonar.projectKey=riyapulusuganti_Demo'
+		}
+	}
 }
 
