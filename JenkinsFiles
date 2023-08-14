@@ -144,7 +144,7 @@ pipeline {
                         changeDetails: """
                         {
                             "build_number":"${BUILD_NUMBER}",
-                            "pipeline_name":"${pipelineName}",
+                            "pipeline_name":"Divya-multibranch-pipeline-1",
                             "stage_name":"${stageName}",
 			    "branchName": "${BRANCH_NAME}"
                         }""")
