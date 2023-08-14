@@ -31,7 +31,7 @@ def artifactname = "artifact_app_devops-21.jar"
 def version = "1.${BUILD_NUMBER}"
 def semanticVersion = "1.${BUILD_NUMBER}.0"
 
-def repoName = "divyasingh9204/Testmultibranch"
+def repoName = "divyasingh9204/testmulti"
 def pipelineName = "${JOB_NAME}"
 
 def changeRequestId = "defaultChangeRequestId"
@@ -140,7 +140,7 @@ pipeline {
                         changeDetails: """
                         {
                             "build_number":"${BUILD_NUMBER}",
-                            "pipeline_name":"Divya-multibranch-pipeline-1",
+                            "pipeline_name":"multibranch-divya-pr",
                             "stage_name":"${stageName}",
 			    "branchName": "${BRANCH_NAME}"
                         }""")
