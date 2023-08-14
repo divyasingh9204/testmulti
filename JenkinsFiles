@@ -136,8 +136,15 @@ pipeline {
                 script {
                     echo 'Inside script step...'
                     
-                    changeRequestId = snDevOpsGetChangeNumber()
-                    echo "Change Request Id without any attributes... ${changeRequestId}"
+                    snDevOpsGetChangeNumber(
+                        changeDetails: """
+                        {
+                            "build_number":"${BUILD_NUMBER}",
+                            "pipeline_name":"Divya-multibranch-pipeline-1",
+                            "stage_name":"${stageName}",
+			    "branchName": "${BRANCH_NAME}"
+                        }""")
+                    echo "Change Request Id with attributes... ${changeRequestId}"
 
                     
 
