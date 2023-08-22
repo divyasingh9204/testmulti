@@ -118,7 +118,6 @@ pipeline {
                 {
                     "attributes":
                     {
-                        "chg_model": "007c4001c343101035ae3f52c1d3aeb2",
                         "short_description": "Test description",
                         "priority": "1",
                         "start_date": "2021-02-05 08:00:00",
