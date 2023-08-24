@@ -153,6 +153,7 @@ pipeline {
                     snDevOpsUpdateChangeInfo(
                         changeRequestDetails: """
                         {
+			    "chg_model": "007c4001c343101035ae3f52c1d3aeb2",
                             "justification": "test justification",
                             "description": "test description",
                             "close_code":"successful_issues",
