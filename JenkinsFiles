@@ -25,6 +25,7 @@
 //     }
 // }
 
+
 def packageName = "package_app-devops-21.${BUILD_NUMBER}.war"
 
 def artifactname = "artifact_app_devops-21.jar"
