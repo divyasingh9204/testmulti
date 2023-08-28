@@ -10,9 +10,9 @@ pipeline {
   tools {
        maven 'Maven'
    }
-   environment {
-	 SCANNER_HOME = tool 'sonarScanner'
-	}  
+ //  environment {
+ //	 SCANNER_HOME = tool 'sonarScanner'
+ //	}  
   stages {
        stage('Build') {
            steps {
@@ -40,12 +40,12 @@ pipeline {
                     snDevOpsPackage(name: "${packageName}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}], "branchName":"main"}""")
             }       
        }
-      stage('Deploy') {
-                 steps {
-                    echo 'Deploying the change....'
-                    snDevOpsChange(ignoreErrors:false)
-                 }
-      }
+     // stage('Deploy') {
+     //            steps {
+     //               echo 'Deploying the change....'
+     //               snDevOpsChange(ignoreErrors:false)
+     //            }
+     // }
 
  }
  
